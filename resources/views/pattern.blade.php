@@ -12,12 +12,12 @@
             margin-left: 200px; /* Редактируем отступ справа */
         }
         a {
-            color: white; /* Устанавливаем белый цвет для текста ссылки */
+            color: black; /* Устанавливаем белый цвет для текста ссылки */
             margin-right: 200px;
         }
     </style>
 </head>
-<body class="bg-dark text-white">
+<body class="bg-white text-black">
 <header class="border-bottom lh-2 py-4 d-flex justify-content-between align-items-center">
     <div class="fs-2 col-13 text-center"><a href="/" class="text-decoration-none"><b>МАГАЗИН ПРЕДМЕТОВ РОСКОШИ</b></a></div>
     <a href="/home" class="fs-5 text-decoration-none">Личный кабинет</a>

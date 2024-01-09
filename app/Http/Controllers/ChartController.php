@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\OrderModel;
+use App\Models\PriceModel;
+use App\Models\WebScrapModel;
 use Illuminate\Http\Request;
 
 class ChartController extends Controller
@@ -45,5 +47,31 @@ class ChartController extends Controller
         ];
 
         return view('charts', compact('datasets', 'labels'));
+    }
+
+    public function combinedChart()
+    {
+        $products = PriceModel::take(10)->get();
+        $webScrapProducts = WebScrapModel::take(10)->get();
+
+        $labels = $products->pluck('name');
+        $prices = $products->pluck('price');
+
+        $webScrapLabels = $webScrapProducts->pluck('Title');
+        $webScrapPrices = $webScrapProducts->pluck('Price');
+
+        $dataset = [
+            'label' => 'Цены товаров из моего магазина',
+            'data' => $prices,
+            'backgroundColor' => '#8c76d7'
+        ];
+
+        $webScrapDataset = [
+            'label' => 'Цены товаров из другого магазина',
+            'data' => $webScrapPrices,
+            'backgroundColor' => '#76d78c'
+        ];
+
+        return view('combined_chart', compact('dataset', 'labels', 'webScrapDataset', 'webScrapLabels'));
     }
 }

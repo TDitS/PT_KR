@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\WebScrapController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'main']);
 
 Route::get('/stat', [ChartController::class, 'orderChart']);
+
+Route::get('/parser_stat', [ChartController::class, 'combinedChart']);
+
+Route::get('/webscrap', [WebScrapController::class, 'webScrap']);
 
 Route::get('/auth', [HomeController::class, 'index']);
 

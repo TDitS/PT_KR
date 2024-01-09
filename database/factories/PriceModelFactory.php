@@ -18,7 +18,7 @@ class PriceModelFactory extends Factory
     public function definition() {
         return [
             'name' => $this->faker->word,
-            'price' => $this->faker->randomFloat(2, 1, 100),
+            'price' => $this->faker->randomFloat(2, 30000, 100000),
             'count' => $this->faker->numberBetween(0, 10)
         ];
     }
